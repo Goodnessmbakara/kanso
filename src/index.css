@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --bg-page: #f4f5fa;
+    --bg-panel: #ffffff;
+    --bg-panel-secondary: #f0f2f8;
+    --text-primary: #171923;
+    --text-secondary: #5c6272;
+    --border-color: #e3e6ef;
+    --accent-color: #4f46e5;
+  }
+
+  .dark {
+    --bg-page: #0b0f1a;
+    --bg-panel: #151a29;
+    --bg-panel-secondary: #1c2234;
+    --text-primary: #e7eaf2;
+    --text-secondary: #8b93a7;
+    --border-color: #262d42;
+    --accent-color: #818cf8;
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+  }
+
+  body {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(140, 150, 175, 0.25);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(140, 150, 175, 0.45);
+}
+
+/* Hide scrollbar on mobile chip lists */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
